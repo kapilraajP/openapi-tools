@@ -43,7 +43,7 @@ public client class openapiClient {
 
     remote function showPetById(string petId) returns http:Response {
         http:Client showPetByIdEp = self.clientEp;
-        http:Response response = checkpanic showPetByIdEp->get(string `/pets/${petId}`);
+        http:Response response = checkpanic showPetByIdEp->get(string `/pets/${getEncodedUri(petId)}`);
         // if response is http:Response {
             // handle the given payload and return
         // }
